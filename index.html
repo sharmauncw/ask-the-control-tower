@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask the Control Tower — IPEDS Outcomes Lab Q&amp;A</title>
+<!--
+  SCAFFOLD (Oct 26, 2026) — hackathon build for the Meta Global AI Developer
+  Hackathon (Indie Developer track, Build for Your World).
+  Standalone preview of the assistant that integrates into the IR Control
+  Tower (https://sharmauncw.github.io/control-tower/) at the Oct 29 step.
+  Answers come ONLY from fact-store.json (settled 2026-10-26), with citations.
+  The Meta Model API phrasing layer is stubbed in app.js until participant
+  credits are claimed and a key is configured at deploy time.
+-->
+<style>
+  :root { --bg:#0b1220; --panel:#111a2e; --ink:#e8eef7; --dim:#9db2cc; --accent:#57c7ff; --line:#22314f; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.5rem; margin: 8px 0 4px; }
+  .sub { color: var(--dim); margin: 0 0 20px; }
+  form { display: flex; gap: 8px; margin-bottom: 12px; }
+  input[type="text"] { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 1rem; }
+  button { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  #suggested { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 16px; }
+  #suggested button { font-size: .85rem; color: var(--dim); }
+  #trustee { border-color: var(--accent); color: var(--accent); margin-bottom: 16px; }
+  #answer { white-space: pre-wrap; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-height: 96px; }
+  footer { color: var(--dim); font-size: .85rem; margin-top: 20px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ask the Control Tower</h1>
+  <p class="sub">Plain-language answers from public college-outcomes data (IPEDS Outcomes Lab, 2015–2023). Every figure is cited — and if a question falls outside the verified fact set, the assistant says so instead of guessing.</p>
+
+  <form id="ask-form">
+    <input id="ask-input" type="text" placeholder="Ask about graduation, equity gaps, peer groups…" autocomplete="off">
+    <button type="submit">Ask</button>
+  </form>
+
+  <div id="suggested" aria-label="Suggested questions"></div>
+  <button id="trustee" type="button">Explain it like I'm a trustee</button>
+
+  <div id="answer">Pick a suggested question, or type your own.</div>
+
+  <footer>Data: U.S. Department of Education IPEDS, via the IPEDS Outcomes Lab. Built for the Meta Global AI Developer Hackathon — question phrasing by Meta AI (Muse, via Meta Model API); all figures from the verified fact store only.</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
